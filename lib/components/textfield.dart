@@ -22,11 +22,15 @@ class MyTextField extends StatelessWidget {
             color: Colors.grey.shade200,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.grey.shade200,
+            color: Colors.white,
           ),
         ),
+        fillColor: Colors.grey[100],
+        filled: true,
+        hintText: hintText,
+        hintStyle: const TextStyle(color: Colors.grey),
       ),
     );
   }
