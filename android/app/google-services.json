@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1013711565215",
+    "project_id": "convocraft-e14c7",
+    "storage_bucket": "convocraft-e14c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013711565215:android:9c056818c9d40fc1ad8daa",
+        "android_client_info": {
+          "package_name": "com.example.convocraft"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlugpzBZ-ISmbMjeRVUFKDf1LyelRT-r0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,8 @@
 import 'package:convocraft/components/my_button.dart';
 import 'package:convocraft/components/textfield.dart';
+import 'package:convocraft/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function() onTap;
@@ -14,7 +16,31 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-  void signUp() {}
+  void signUp() async {
+    if (passwordController.text != passwordController.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Passwords do not match!!'),
+        ),
+      );
+      return;
+    }
+    final authService = Provider.of<AuthService>(context, listen: false);
+    try {
+      await authService.signUpWithEmailAndPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(
+          e.toString(),
+        ),
+      ));
+    }
+  }
+
+  // get auth service
 
   @override
   Widget build(BuildContext context) {
