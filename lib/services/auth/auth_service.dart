@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 
 class AuthService extends ChangeNotifier {
+  // instace of the auth
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  // instance of firestore
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   // sign in user
   Future<UserCredential> signInWithEmailAndPassword(
@@ -26,6 +31,8 @@ class AuthService extends ChangeNotifier {
         email: email,
         password: password,
       );
+
+      // after creating a the user, Create a new document for the user in the users collection
 
       return userCredential;
     } on FirebaseAuth catch (e) {
