@@ -16,6 +16,13 @@ class AuthService extends ChangeNotifier {
       //sign in
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
+
+      // add a new document for the user in users collecton if it doesn't already exist
+      _firestore.collection('users').doc(userCredential.user!.uid).set({
+        'uid': userCredential.user!.uid,
+        'email': email,
+      }, SetOptions(merge: true));
+
       return userCredential;
     } on FirebaseAuthException catch (e) {
       throw Exception(e.code);
@@ -33,6 +40,10 @@ class AuthService extends ChangeNotifier {
       );
 
       // after creating a the user, Create a new document for the user in the users collection
+      _firestore.collection('users').doc(userCredential.user!.uid).set({
+        'uid': userCredential.user!.uid,
+        'email': email,
+      });
 
       return userCredential;
     } on FirebaseAuth catch (e) {
