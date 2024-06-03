@@ -13,7 +13,6 @@ class ChatService extends ChangeNotifier {
 
 // create a a new message
 
-// construct chat room id from curent user id ad receiver id(sorted to ensure uniqueness)
 
 // add message to the database
   }
