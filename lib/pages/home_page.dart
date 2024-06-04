@@ -27,11 +27,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
         actions: [
           // sign out button
           IconButton(onPressed: signOut, icon: const Icon(Icons.logout))
         ],
+        centerTitle: true,
       ),
       body: _buildUserList(),
     );
